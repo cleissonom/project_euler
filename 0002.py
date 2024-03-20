@@ -11,6 +11,10 @@ def fibonacci_sum_even(limit):
         a, b = b, a + b
     return even_sum
 
-limit = 4000000
-result = fibonacci_sum_even(limit)
-print(result)
+def main():
+    limit = 4000000
+    result = fibonacci_sum_even(limit)
+    print(result) # 4613732
+
+if __name__ == '__main__':
+    main()

@@ -40,20 +40,22 @@ def measure_time(func, limit):
     return f" Real time: {t2[0] - t1[0]:.8f} seconds\n CPU time: {t2[1] - t1[1]:.8f} seconds"
 
 
-# Results
-test_limit = 999_888_777
-print(measure_time(solution1, test_limit))
-print(measure_time(solution2, test_limit))
-print(measure_time(solution3, test_limit))
+def main():
+    test_limit = 999_888_777
+    print(measure_time(solution1, test_limit))
+    # Result: 233281432053140793
+    #   Real time: 0.00002625 seconds
+    #   CPU time: 0.00002500 seconds
 
-# Result: 233281432053140793
-#   Real time: 0.00002625 seconds
-#   CPU time: 0.00002500 seconds
+    print(measure_time(solution2, test_limit))
+    # Result: 233281432053140793
+    #   Real time: 0.00001533 seconds
+    #   CPU time: 0.00001500 seconds
 
-# Result: 233281432053140793
-#   Real time: 0.00001533 seconds
-#   CPU time: 0.00001500 seconds
+    print(measure_time(solution3, test_limit))
+    # Result: 233281432053140793
+    #   Real time: 72.78611975 seconds
+    #   CPU time: 72.53000900 seconds
 
-# Result: 233281432053140793
-#   Real time: 72.78611975 seconds
-#   CPU time: 72.53000900 seconds
+if __name__ == "__main__":
+    main()
