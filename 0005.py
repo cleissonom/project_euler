@@ -6,21 +6,21 @@ import math
 import time
 
 
-def loop_solution():
-    i = 2520
+def loop_solution(n=20):
+    i = n
     while True:
-        if all([i % num == 0 for num in range(1, 20 + 1)]):
+        if all([i % num == 0 for num in range(1, n + 1)]):
             return i
-        i += 20
+        i += n
 
 
 def lcm(a, b):
     return (a * b) // math.gcd(a, b)
 
 
-def gcd_solution():
+def gcd_solution(n=20):
     lcm_result = 1
-    for i in range(11, 20 + 1):
+    for i in range(2, n + 1):
         lcm_result = lcm(lcm_result, i)
 
     return lcm_result
@@ -37,13 +37,13 @@ def measure_time(func):
 def main():
     print(measure_time(loop_solution))
     # Result: 232792560
-    #  Real time: 15.62605388 seconds
-    #  CPU time: 15.09860800 seconds
+    #  Real time: 15.03269071 seconds
+    #  CPU time: 14.69493800 seconds
 
     print(measure_time(gcd_solution))
     # Result: 232792560
-    #  Real time: 0.00004892 seconds
-    #  CPU time: 0.00004800 seconds
+    #  Real time: 0.00005804 seconds
+    #  CPU time: 0.00005800 seconds
 
 
 if __name__ == "__main__":
