@@ -67,7 +67,14 @@ def measure_time(func):
 
 def main():
     print(measure_time(loop_solution))
+    # Result: 906609
+    #  Real time: 0.00209554 seconds
+    #  CPU time: 0.00209500 seconds
+
     print(measure_time(math_solution))
+    # Result: 906609
+    #  Real time: 0.04149167 seconds
+    #  CPU time: 0.04139400 seconds
 
 
 if __name__ == "__main__":
