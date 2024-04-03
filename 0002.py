@@ -4,7 +4,11 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 
-def fibonacci_sum_even(limit):
+from helpers import measure_time
+
+
+@measure_time
+def fibonacci_sum_even(limit=4000000):
     # a is the current number, b is the next number
     a, b = 1, 1
     even_sum = 0
@@ -17,9 +21,10 @@ def fibonacci_sum_even(limit):
 
 
 def main():
-    limit = 4000000
-    result = fibonacci_sum_even(limit)
-    print(result)  # 4613732
+    fibonacci_sum_even()
+    # Result: 4613732
+    #  Real time: 0.00000925 seconds
+    #  CPU time: 0.00000800 seconds
 
 
 if __name__ == "__main__":

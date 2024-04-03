@@ -3,15 +3,15 @@
 
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-import time
+from helpers import measure_time
+
 
 # Solution using strings
-
-
 def is_palindrome_str(n):
     return str(n) == str(n)[::-1]
 
 
+@measure_time
 def loop_solution():
     largest_palindrome = 0
 
@@ -48,6 +48,7 @@ def is_palindrome_math(n):
     return True if rev == n else False
 
 
+@measure_time
 def math_solution():
     answer = 0
     for x in range(100, 1000):
@@ -57,21 +58,12 @@ def math_solution():
     return answer
 
 
-# Test cases
-def measure_time(func):
-    t1 = time.perf_counter(), time.process_time()
-    print("Result:", func())
-    t2 = time.perf_counter(), time.process_time()
-    return f" Real time: {t2[0] - t1[0]:.8f} seconds\n CPU time: {t2[1] - t1[1]:.8f} seconds"
-
-
 def main():
-    print(measure_time(loop_solution))
+    loop_solution()
     # Result: 906609
     #  Real time: 0.00209554 seconds
     #  CPU time: 0.00209500 seconds
-
-    print(measure_time(math_solution))
+    math_solution()
     # Result: 906609
     #  Real time: 0.04149167 seconds
     #  CPU time: 0.04139400 seconds
