@@ -64,11 +64,35 @@ def solution(n=13):
     return max_prod
 
 
+@measure_time
+def solution2(n=13):
+    max_prod = 0
+    for i in range(len(series) - n + 1):
+        if i == 0:
+            prod = 1
+            for j in range(n):
+                prod *= int(series[j])
+        else:
+            if int(series[i - 1]) != 0:
+                prod = prod // int(series[i - 1]) * int(series[i + n - 1])
+            else:
+                prod = 1
+                for j in range(i, i + n):
+                    prod *= int(series[j])
+        max_prod = max(max_prod, prod)
+
+    return max_prod
+
+
 def main():
     solution()
     # Result: 23514624000
     #  Real time: 0.00202729 seconds
     #  CPU time: 0.00202100 seconds
+    solution2()
+    # Result: 23514624000
+    #  Real time: 0.00063983 seconds
+    #  CPU time: 0.00064000 seconds
 
 
 if __name__ == "__main__":
