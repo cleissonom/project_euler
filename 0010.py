@@ -75,9 +75,6 @@ def solution3(target=2_000_000):
 # Map all multuples of base primes to False
 @measure_time
 def solution4(target=2_000_000):
-    if target < 2:
-        return 0
-
     sieve = [True] * target
     sieve[0] = False  # 1 is not a prime number
 
