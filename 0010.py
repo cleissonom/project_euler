@@ -72,6 +72,23 @@ def solution3(target=2_000_000):
     return result
 
 
+# Map all multuples of base primes to False
+@measure_time
+def solution4(target=2_000_000):
+    if target < 2:
+        return 0
+
+    sieve = [True] * target
+    sieve[0] = False  # 1 is not a prime number
+
+    for n in range(2, target + 1):
+        if sieve[n - 1]:
+            for multiple in range(n * 2, target + 1, n):
+                sieve[multiple - 1] = False
+
+    return sum(i + 1 for i in range(len(sieve)) if sieve[i])
+
+
 def main():
     solution()
     # Result: 142913828922
@@ -85,6 +102,10 @@ def main():
     # Result: 142913828922
     #  Real time: 0.08268404 seconds
     #  CPU time: 0.08209200 seconds
+    solution4()
+    # Result: 142913828922
+    #  Real time: 0.42478658 seconds
+    #  CPU time: 0.42295600 seconds
 
 
 if __name__ == "__main__":
